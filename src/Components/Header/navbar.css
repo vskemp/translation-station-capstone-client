@@ -1,0 +1,9 @@
+nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    border: dotted white;
+    font-size: 30px;
+    background-color: lightcoral;
+}
