@@ -8,14 +8,15 @@ import TranslatedCommon from '../TranslatedCommon';
 
 function Home() {
     return (
-    <div>
-        <h2>Welcome To Translation Station</h2>
-        <div className="salut">
+        <div>
+            <h2>Welcome To Translation Station</h2>
+            <div className="salut">
                 <img src={Images} alt="Hello in different languages"></img>
+            </div>
+            <TranslationForm />
+            <TranslatedCommon />
         </div>
-        <TranslationForm />
-        <TranslatedCommon />
-    </div>
-    )}
+    )
+}
 
 export default Home;

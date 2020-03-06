@@ -65,6 +65,7 @@ class TranslationForm extends Component {
         </div>
         <h1> Your Translation: </h1>
         <h3>"{this.state.translated}"</h3>
+        <button onClick>Save Translation</button>
       </div>
     );
   }

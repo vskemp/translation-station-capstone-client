@@ -5,7 +5,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import Login from '../Pages/Login';
+import LoginSignUp from '../Pages/LoginSignUp';
 import Phrases from '../Pages/Phrases';
 import Home from '../Pages/Home';
 
@@ -29,7 +29,7 @@ export default function NavBar() {
             renders the first one that matches the current URL. */}
                 <Switch>
                     <Route path="/login">
-                        <Login />
+                        <LoginSignUp />
                         {/* <LoginSignup /> */}
                     </Route>
                     <Route path="/phrases">
