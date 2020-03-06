@@ -41,8 +41,8 @@ export default class SignupForm extends Component {
           required
         />
         <input
-          type="text"
-          name="text"
+          type="account"
+          name="account"
           placeholder="Enter username"
           value={this.state.text}
           onChange={this.handleInputChange}
