@@ -8,7 +8,11 @@ class TranslationForm extends Component {
     this.state = {
       value: "",
       translated: "...",
-      language: "en"
+      language: "es",
+      phrase: "",
+      translation: "",
+      account: "",
+      token: ""
     };
   }
 
@@ -19,7 +23,7 @@ class TranslationForm extends Component {
   translate(e) {
     e.preventDefault();
     axios
-      .post("http://localhost:5252/translate/do", {
+      .post("/translate/do", {
         language: this.state.language,
         message: this.state.value
       })
@@ -34,6 +38,31 @@ class TranslationForm extends Component {
         console.log("error");
       });
   }
+  handleSubmit(e) {
+    e.preventDefault(e);
+    axios
+      .post("/phrases/add", {
+        phrase: "veronica"
+        // account: this.state.account,
+        // token: this.state.token,
+        // language: this.state.language,
+        // phrase: this.state.phrase,
+        // translation: this.state.translated
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+    // token: this.state.token,
+    // language: this.state.language,
+    // phrase: this.state.phrase
+
+  }
+  // console.log(this.state.language);
+  // console.log(this.state.token);
+  // console.log(this.state.phrase);
+  // console.log(this.state.translation);
+  // console.log(this.state.account);
+
 
   render() {
     return (
@@ -66,23 +95,13 @@ class TranslationForm extends Component {
           </div>
           <h1> Your Translation: </h1>
           <h3>"{this.state.translated}"</h3>
-          <button>Save Translation</button>
+          <button
+            onClick={this.handleSubmit}>Save Translation</button>
+          <h1>Your saved phrases:</h1>
+          <h3>{this.state.translated}</h3>
+
         </form>
-        <div className="untranslated"
-          value={this.state.language}
-          onChange={e => this.translate(e)}>
-          <ul>
-            <h2>English Common Phrases:</h2>
-            <li>Hello, my name is...</li>
-            <li>What is your name?</li>
-            <li>How are you?</li>
-            <li>Where is the bathroom?</li>
-            <li>Thank you</li>
-            <li>Yes</li>
-            <li>No</li>
-            <li>I do not understand</li>
-          </ul>
-        </div>
+
       </div>
     );
   }

@@ -20,11 +20,12 @@ export default class SignupForm extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    const signup = await axios.post("http://localhost:5252/users/sign-up", {
+    const signup = await axios.post("/users/sign-up", {
       email: this.state.email,
       account: this.state.account,
       password: this.state.password
-    });
+    },
+      alert('You are registered! Please sign in!'));
     console.log(signup);
   };
   render() {

@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import axios from "axios";
 import cookies from 'next-cookies';
-
+// axios.defaults.withCredentials = true;
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
+
   static async getInitialProps(ctx) {
     return {
       account: cookies(ctx).account || "",
@@ -25,18 +26,19 @@ export default class LoginForm extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    const login = await axios.post("http://localhost:5252/users/login", {
+    const login = await axios.post("/users/login", {
       email: this.state.email,
       password: this.state.password
     });
-    if (login.data.token) {
+    if (!login.data.browser_token) {
       alert("Wrong Email or Password, Try Again!")
     } else {
-      document.cookie = `account=${login.data.account_name}; `;
-      document.cookie = `token=${login.data.browser_token}; `;
+      document.cookie = `account=${login.data.account_name}; path=/`;
+      document.cookie = `token=${login.data.browser_token}; path=/`;
       alert("Successfully logged in");
     }
-    console.log(login);
+    console.log(document.cookie);
+
   };
   render() {
     console.log(this.state);
