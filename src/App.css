@@ -41,3 +41,12 @@ body {
   display:flex;
   justify-content: center;
 }
+
+button {
+  color:white;
+  background-color: lightcoral;
+  border: dotted white;
+  padding: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}

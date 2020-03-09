@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { ThemeProvider} from "@chakra-ui/core";
+import { ThemeProvider } from "@chakra-ui/core";
 import NavBar from './Components/Header/NavBar';
 import Footer from "./Components/Footer/footer";
 // import Home from './Components/Pages/Home';
@@ -8,10 +8,11 @@ import Footer from "./Components/Footer/footer";
 function App() {
   return (
     <>
-    {/* <Home /> */}
-    <ThemeProvider />
-    <NavBar />
-    <Footer />
+      {/* <Home /> */}
+      <ThemeProvider>
+        <NavBar />
+        <Footer />
+      </ThemeProvider>
     </>
   );
 }

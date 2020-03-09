@@ -2,8 +2,19 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
-    border: dotted white;
+    border: dotted 5px white;
     font-size: 30px;
     background-color: lightcoral;
+    padding: 10px;
+    margin:10px;
 }
+
+.home,
+.phrases,
+.logout,
+.login,
+.chatroom {
+    padding: 10px;
+}
+
+

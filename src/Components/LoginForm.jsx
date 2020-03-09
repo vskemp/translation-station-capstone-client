@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import cookies from 'next-cookies';
 
 export default class LoginForm extends Component {
   constructor(props) {
@@ -9,7 +10,12 @@ export default class LoginForm extends Component {
       password: ""
     };
   }
-
+  static async getInitialProps(ctx) {
+    return {
+      account: cookies(ctx).account || "",
+      token: cookies(ctx).token || ""
+    };
+  }
   handleInputChange = event => {
     const { value, name } = event.target;
     this.setState({
@@ -23,6 +29,13 @@ export default class LoginForm extends Component {
       email: this.state.email,
       password: this.state.password
     });
+    if (login.data.token) {
+      alert("Wrong Email or Password, Try Again!")
+    } else {
+      document.cookie = `account=${login.data.account_name}; `;
+      document.cookie = `token=${login.data.browser_token}; `;
+      alert("Successfully logged in");
+    }
     console.log(login);
   };
   render() {

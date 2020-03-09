@@ -8,29 +8,44 @@ import {
 import LoginSignUp from '../Pages/LoginSignUp';
 import Phrases from '../Pages/Phrases';
 import Home from '../Pages/Home';
+import Chatroom from '../Pages/Chatroom';
+import Logout from '../Pages/Logout';
+import './navbar.css';
+
 
 export default function NavBar() {
     return (
         <Router>
             <div className="NavLinks">
                 <nav>
-                    <div>
+                    <div className="home">
                         <Link to="/">Home</Link>
                     </div>
-                    <div>
+                    <div className="login">
                         <Link to="/login">Login</Link>
                     </div>
-                    <div>
+                    <div className="phrases">
                         <Link to="/phrases">Saved</Link>
+                    </div>
+                    <div className="chatroom">
+                        <Link to="/chatroom">Chatroom</Link>
+                    </div>
+                    <div className="logout">
+                        <Link to="/logout">Logout</Link>
                     </div>
                 </nav>
 
                 {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+                                        renders the first one that matches the current URL. */}
                 <Switch>
+                    <Route path="/chatroom">
+                        <Chatroom />
+                    </Route>
+                    <Route path="/logout">
+                        <Logout />
+                    </Route>
                     <Route path="/login">
                         <LoginSignUp />
-                        {/* <LoginSignup /> */}
                     </Route>
                     <Route path="/phrases">
                         <Phrases />
@@ -38,8 +53,14 @@ export default function NavBar() {
                     <Route path="/">
                         <Home />
                     </Route>
+                    <Route path="/chatroom">
+                        <Chatroom />
+                    </Route>
+                    <Route path="/logout">
+                        <Logout />
+                    </Route>
                 </Switch>
             </div>
-        </Router>
+        </Router >
     );
 }

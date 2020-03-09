@@ -2,9 +2,6 @@ import React from 'react';
 import Images from '../Images/lang.png';
 import TranslationForm from '../TranslationForm';
 import TranslatedCommon from '../TranslatedCommon';
-// import NavBar from '../Header/NavBar';
-// import NavBar from '../Header/NavBar';
-// import Footer from '../Footer/footer';
 
 function Home() {
     return (

@@ -6,9 +6,11 @@ function Phrases() {
         <div>
             <h2>Saved Phrases</h2>
             <div className="salut">
-                    <img src={Images} alt="Hello in different languages"></img>
+                <img src={Images} alt="Hello in different languages"></img>
             </div>
         </div>
-)};
+    )
+};
 
 export default Phrases;
+
