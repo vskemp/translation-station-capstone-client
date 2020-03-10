@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 import cookies from 'next-cookies';
+import {
+  FormControl,
+  FormLabel,
+  // FormErrorMessage,
+  Button,
+  Input
+} from "@chakra-ui/core";
 // axios.defaults.withCredentials = true;
 export default class LoginForm extends Component {
   constructor(props) {
@@ -48,25 +55,23 @@ export default class LoginForm extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <h1>Login</h1>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Enter password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            required
-          />
-          <input type="submit" value="Submit" />
+          <FormControl >
+            <FormLabel>Email address</FormLabel>
+            <Input value={this.state.email}
+              onChange={this.handleInputChange}
+              type="email"
+              name="email"
+              required />
+            <FormLabel>Password</FormLabel>
+            <Input value={this.state.password}
+              onChange={this.handleInputChange}
+              type="password"
+              name="password"
+              required />
+            <Button variantColor="teal" type="submit" value="Submit">Submit</Button>
+          </FormControl>
         </form>
-        <p>Delete cookie: <button onClick={this.reset}>Reset</button></p>
+        {/* <p>Delete cookie: <button onClick={this.reset}>Reset</button></p> */}
       </div>
     );
   }

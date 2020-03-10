@@ -1,16 +1,15 @@
 import React from 'react';
-import Images from '../Images/lang.png';
 import TranslationForm from '../TranslationForm';
+// import { Flex } from "@chakra-ui/core";
 
 
 function Home() {
     return (
         <div>
             <h2>Welcome To Translation Station</h2>
-            <div className="salut">
-                <img src={Images} alt="Hello in different languages"></img>
-            </div>
+            <h3>Easily Communicate In Other Languages</h3>
             <TranslationForm />
+
         </div>
     )
 }

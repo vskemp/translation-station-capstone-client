@@ -18,16 +18,16 @@ export default function NavBar() {
             <div className="NavLinks">
                 <nav>
                     <div className="home">
-                        <Link to="/">Home</Link>
+                        <Link to="/" style={{ color: "white", textDecoration: "none" }}>Home</Link>
                     </div>
                     <div className="login">
-                        <Link to="/login">Login</Link>
+                        <Link to="/login" style={{ color: "white", textDecoration: "none" }}>Login</Link>
                     </div>
                     <div className="chatroom">
-                        <Link to="/chatroom">Chatroom</Link>
+                        <Link to="/chatroom" style={{ color: "white", textDecoration: "none" }}>Chatroom</Link>
                     </div>
                     <div className="logout">
-                        <Link to="/logout">Logout</Link>
+                        <Link to="/logout" style={{ color: "white", textDecoration: "none" }}>Logout</Link>
                     </div>
                 </nav>
 

@@ -1,18 +1,14 @@
 import React from 'react';
-import Images from '../Images/lang.png';
-
+import { Button } from "@chakra-ui/core";
 function Logout() {
   return (
     <div>
       <div>
         <h2>Logout</h2>
-        <div className="salut">
-          <img src={Images} alt="Hello in different languages"></img>
-        </div>
       </div>
       <div>
         Click Here To Logout:
-        <button>Log Out</button>
+        <Button variantColor="teal">Log Out</Button>
       </div>
     </div>
   )

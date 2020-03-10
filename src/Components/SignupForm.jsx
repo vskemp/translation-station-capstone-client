@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {
+  FormControl,
+  FormLabel,
+  // FormErrorMessage,
+  Button,
+  Input
+} from "@chakra-ui/core";
 
 export default class SignupForm extends Component {
   constructor(props) {
@@ -33,31 +40,27 @@ export default class SignupForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Register</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input
-          type="account"
-          name="account"
-          placeholder="Enter username"
-          value={this.state.text}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input type="submit" value="Submit" />
+        <FormControl>
+          <FormLabel htmlFor="email">Email address</FormLabel>
+          <Input value={this.state.text}
+            onChange={this.handleInputChange}
+            name="email"
+            type="email"
+            required />
+          <FormLabel htmlFor="account">Username</FormLabel>
+          <Input value={this.state.text}
+            onChange={this.handleInputChange}
+            name="account"
+            type="account"
+            required />
+          <FormLabel htmlFor="password">Password</FormLabel>
+          <Input value={this.state.text}
+            onChange={this.handleInputChange}
+            type="password"
+            name="password"
+            required />
+          <Button variantColor="teal" type="submit" value="Submit">Submit</Button>
+        </FormControl>
       </form>
     );
   }

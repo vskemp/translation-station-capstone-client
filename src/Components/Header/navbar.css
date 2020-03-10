@@ -2,11 +2,13 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: row;
-    border: dotted 5px white;
+    justify-content: center;
+    /* border: dotted 5px white; */
     font-size: 30px;
-    background-color: lightcoral;
+    background-color: rgb(1, 180, 180);
     padding: 10px;
     margin:10px;
+    border-radius: 10px;
 }
 
 .home,

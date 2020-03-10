@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 import LanguageCodes from "../Utils/LanguageCodes";
+import {
+  Button,
+  Select,
+  FormControl,
+  Input,
+  FormHelperText,
+} from "@chakra-ui/core";
+import { userInfo } from "os";
 // import cookies from 'next-cookies';
 
 
@@ -13,7 +21,7 @@ class TranslationForm extends Component {
       language: "es",
       phrase: "",
       account: "bork",
-      token: "92lk5QIulvqD3UAp5OeAOw=="
+      token: "IJpgoGUww1HbaOD1QfNLwQ=="
     };
   }
 
@@ -55,9 +63,19 @@ class TranslationForm extends Component {
       .then(function (response) {
         console.log(response.data);
       })
-    // componentDidMount() {
-    //   console.log('GrandChild did mount.');
-    // }
+  }
+
+  retrieve(e) {
+    e.preventDefault(e);
+    axios
+      .post("/phrases/retrieve", {
+        account: this.state.account,
+        token: this.state.token
+      })
+      .then(function (response) {
+        let myData = response.data;
+        console.log(myData);
+      })
   }
   render() {
     console.log(this.state);
@@ -66,7 +84,7 @@ class TranslationForm extends Component {
         <form>
           <p>Choose Your Language To Translate To:</p>
           {/* iterate through language options to create a select box */}
-          <select
+          <Select
             className="select-language"
             value={this.state.language}
             onChange={e => this.changeHandler(e.target.value)}
@@ -77,25 +95,28 @@ class TranslationForm extends Component {
               </option>
             ))}
             ;
-        </select>
+        </Select>
           <div className="please">What Would You Like To Say?</div>
-          <div className="bar">
-            <input
-              size="50"
-              placeholder="Enter Any Language"
-              value={this.state.value}
-              onChange={e => this.setState({ value: e.target.value })}
-              type="text"
-            />
-            <button onClick={e => this.translate(e)}>Submit</button>
+          <div>
+            <FormControl>
+              <Input
+                className="input"
+                value={this.state.value}
+                onChange={e => this.setState({ value: e.target.value })}
+                type="text"
+              />
+              <FormHelperText id="email-helper-text">
+                Enter any language
+              </FormHelperText>
+            </FormControl>
+            <Button variantColor="teal" onClick={e => this.translate(e)}>Submit</Button>
           </div>
           <h1> Your Translation: </h1>
           <h3>"{this.state.translated}"</h3>
-          <button
-            onClick={e => this.handleSubmit(e)}>Save Translation</button>
-          <h1>Your saved phrases:</h1>
-          <h3>{this.state.translated}</h3>
-
+          <Button variantColor="teal"
+            onClick={e => this.handleSubmit(e)}>Save Translation</Button>
+          <Button variantColor="teal" onClick={e => this.retrieve(e)}>Retrieve Phrases</Button>
+          {/* <div className="saved">{this.state.map}</div> */}
         </form>
 
       </div>
