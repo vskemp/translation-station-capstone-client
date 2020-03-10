@@ -2,7 +2,7 @@ nav {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     /* border: dotted 5px white; */
     font-size: 30px;
     background-color: rgb(1, 180, 180);

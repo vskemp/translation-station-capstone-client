@@ -1,22 +1,63 @@
-body{
-  display: flex;
-  flex-direction: column;
+
+
+.trans-form {
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+option {
+  display: flex;
+margin:100px;
+}
+
+.select{
+  display: flex;
+  justify-items: center;
+}
+nav {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+  background-color: rgb(1, 180, 180);
+  padding: 10px;
+  margin:10px;
+  border-radius: 10px;
+}
+
+.home,
+.login,
+.chatroom {
+  padding: 10px;
+}
+.home{
+  text-align: center;
+}
 .input {
   display: flex;
 }
 
+ul{
+  text-align:"left";
+}
 
-
+li{
+  padding: 10px;
+}
 
 .please {
   padding-top: 20px;
 }
 
+h1 {
+  display: flex;
+text-align: center;
+}
 h3 {
   color:teal;
 }

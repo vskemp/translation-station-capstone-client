@@ -8,7 +8,8 @@ import {
 import { Button } from "@chakra-ui/core";
 import LoginSignUp from '../Pages/LoginSignUp';
 import Home from '../Pages/Home';
-import Chatroom from '../Pages/Chatroom'
+import Chatroom from '../Pages/Chatroom';
+import Phrases from '../Pages/Phrases';
 import './navbar.css';
 
 
@@ -22,6 +23,9 @@ export default function NavBar() {
                     </div>
                     <div className="login">
                         <Link to="/login" style={{ color: "white", textDecoration: "none" }}>Login</Link>
+                    </div>
+                    <div className="phrases">
+                        <Link to="/phrases" style={{ color: "white", textDecoration: "none" }}>Phrases</Link>
                     </div>
                     <div className="chatroom">
                         <Link to="/chatroom" style={{ color: "white", textDecoration: "none" }}>Chatroom</Link>
@@ -37,6 +41,9 @@ export default function NavBar() {
                     </Route>
                     <Route path="/login">
                         <LoginSignUp />
+                    </Route>
+                    <Route path="/phrases">
+                        <Phrases />
                     </Route>
                     <Route path="/">
                         <Home />

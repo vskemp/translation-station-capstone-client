@@ -5,7 +5,7 @@ import TranslationForm from '../TranslationForm';
 
 function Home() {
     return (
-        <div>
+        <div className="home">
             <h2>Welcome To Translation Station</h2>
             <h3>Easily Communicate In Other Languages</h3>
             <TranslationForm />

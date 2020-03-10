@@ -45,7 +45,6 @@ export default class LoginForm extends Component {
       alert("You are logged in!");
     }
     console.log(document.cookie);
-    console.log(this.reset);
 
 
   };

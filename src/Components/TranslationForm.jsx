@@ -8,8 +8,9 @@ import {
   Input,
   FormHelperText,
 } from "@chakra-ui/core";
+
 // import { userInfo } from "os";
-// import cookies from 'next-cookies';
+import cookie from 'react-cookie';
 
 
 class TranslationForm extends Component {
@@ -20,10 +21,17 @@ class TranslationForm extends Component {
       translated: "...",
       language: "es",
       phrase: "",
-      account: "bork",
-      token: "IJpgoGUww1HbaOD1QfNLwQ=="
+      account: "",
+      token: ""
     };
   }
+  componentDidMount() {
+    this.setState({
+      account: cookie.load('account'),
+      token: cookie.load('token')
+    })
+  }
+
 
   changeHandler(e) {
     this.setState({ language: e });
@@ -77,27 +85,30 @@ class TranslationForm extends Component {
       .then(function (response) {
         const myData = response.data;
         console.log(myData);
+        return myData
       })
+
   }
   render() {
     console.log(this.state);
     return (
-      <div>
+      <div className="trans-form">
         <form>
           <p>Choose Your Language To Translate To:</p>
-          {/* iterate through language options to create a select box */}
-          <Select
-            className="select-language"
-            value={this.state.language}
-            onChange={e => this.changeHandler(e.target.value)}
-          >
-            {Object.keys(LanguageCodes).map(lang => (
-              <option key={lang} value={lang}>
-                {LanguageCodes[lang]}
-              </option>
-            ))}
-            ;
+          <div className="select">{/* iterate through language options to create a select box */}
+            <Select
+              className="select-language"
+              value={this.state.language}
+              onChange={e => this.changeHandler(e.target.value)}
+            >
+              {Object.keys(LanguageCodes).map(lang => (
+                <option key={lang} value={lang}>
+                  {LanguageCodes[lang]}
+                </option>
+              ))}
+              ;
         </Select>
+          </div>
           <div className="please">What Would You Like To Say?</div>
           <div>
             <FormControl>
@@ -119,8 +130,6 @@ class TranslationForm extends Component {
           <Button variantColor="teal"
             onClick={e => this.handleSubmit(e)}>Save Translation</Button>
         </form>
-        <Button variantColor="teal" onClick={e => this.retrieve(e)}>Retrieve Phrases</Button>
-        <ul className="saved">{this.phrases}</ul>
       </div>
     );
   }
