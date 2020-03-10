@@ -3,15 +3,20 @@ body{
   flex-direction: column;
   text-align: center;
   align-items: center;
+  justify-content: center;
 }
 
+.input {
+  display: flex;
+}
+
+
+
+
 .please {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 h3 {
   color:teal;
-}
-.input {
-  max-width: 455px;
 }

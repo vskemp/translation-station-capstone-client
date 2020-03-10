@@ -8,7 +8,7 @@ import {
   Input,
   FormHelperText,
 } from "@chakra-ui/core";
-import { userInfo } from "os";
+// import { userInfo } from "os";
 // import cookies from 'next-cookies';
 
 
@@ -61,7 +61,9 @@ class TranslationForm extends Component {
         translation: this.state.translated
       })
       .then(function (response) {
-        console.log(response.data);
+        const savedPhrases = response.data;
+        console.log(savedPhrases);
+
       })
   }
 
@@ -73,7 +75,7 @@ class TranslationForm extends Component {
         token: this.state.token
       })
       .then(function (response) {
-        let myData = response.data;
+        const myData = response.data;
         console.log(myData);
       })
   }
@@ -100,6 +102,7 @@ class TranslationForm extends Component {
           <div>
             <FormControl>
               <Input
+                width="30rem"
                 className="input"
                 value={this.state.value}
                 onChange={e => this.setState({ value: e.target.value })}
@@ -115,10 +118,9 @@ class TranslationForm extends Component {
           <h3>"{this.state.translated}"</h3>
           <Button variantColor="teal"
             onClick={e => this.handleSubmit(e)}>Save Translation</Button>
-          <Button variantColor="teal" onClick={e => this.retrieve(e)}>Retrieve Phrases</Button>
-          {/* <div className="saved">{this.state.map}</div> */}
         </form>
-
+        <Button variantColor="teal" onClick={e => this.retrieve(e)}>Retrieve Phrases</Button>
+        <ul className="saved">{this.phrases}</ul>
       </div>
     );
   }

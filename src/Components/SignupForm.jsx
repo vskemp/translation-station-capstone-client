@@ -5,7 +5,8 @@ import {
   FormLabel,
   // FormErrorMessage,
   Button,
-  Input
+  Input,
+  Flex
 } from "@chakra-ui/core";
 
 export default class SignupForm extends Component {
@@ -38,30 +39,35 @@ export default class SignupForm extends Component {
   render() {
     console.log(this.state);
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Register</h1>
-        <FormControl>
-          <FormLabel htmlFor="email">Email address</FormLabel>
-          <Input value={this.state.text}
-            onChange={this.handleInputChange}
-            name="email"
-            type="email"
-            required />
-          <FormLabel htmlFor="account">Username</FormLabel>
-          <Input value={this.state.text}
-            onChange={this.handleInputChange}
-            name="account"
-            type="account"
-            required />
-          <FormLabel htmlFor="password">Password</FormLabel>
-          <Input value={this.state.text}
-            onChange={this.handleInputChange}
-            type="password"
-            name="password"
-            required />
-          <Button variantColor="teal" type="submit" value="Submit">Submit</Button>
-        </FormControl>
-      </form>
+      <Flex justify="center">
+        <form onSubmit={this.onSubmit}>
+          <h1>Register</h1>
+
+          <FormControl>
+            <FormLabel htmlFor="email">Email address</FormLabel>
+            <Input
+
+              value={this.state.text}
+              onChange={this.handleInputChange}
+              name="email"
+              type="email"
+              required />
+            <FormLabel htmlFor="account">Username</FormLabel>
+            <Input value={this.state.text}
+              onChange={this.handleInputChange}
+              name="account"
+              type="account"
+              required />
+            <FormLabel htmlFor="password">Password</FormLabel>
+            <Input value={this.state.text}
+              onChange={this.handleInputChange}
+              type="password"
+              name="password"
+              required />
+            <Button variantColor="teal" type="submit" value="Submit">Submit</Button>
+          </FormControl>
+        </form>
+      </Flex>
     );
   }
 }

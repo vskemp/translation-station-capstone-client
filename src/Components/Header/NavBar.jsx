@@ -5,10 +5,10 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import { Button } from "@chakra-ui/core";
 import LoginSignUp from '../Pages/LoginSignUp';
 import Home from '../Pages/Home';
-import Chatroom from '../Pages/Chatroom';
-import Logout from '../Pages/Logout';
+import Chatroom from '../Pages/Chatroom'
 import './navbar.css';
 
 
@@ -26,9 +26,7 @@ export default function NavBar() {
                     <div className="chatroom">
                         <Link to="/chatroom" style={{ color: "white", textDecoration: "none" }}>Chatroom</Link>
                     </div>
-                    <div className="logout">
-                        <Link to="/logout" style={{ color: "white", textDecoration: "none" }}>Logout</Link>
-                    </div>
+                    <Button variantColor="red">Logout</Button>
                 </nav>
 
                 {/* A <Switch> looks through its children <Route>s and
@@ -37,22 +35,14 @@ export default function NavBar() {
                     <Route path="/chatroom">
                         <Chatroom />
                     </Route>
-                    <Route path="/logout">
-                        <Logout />
-                    </Route>
                     <Route path="/login">
                         <LoginSignUp />
                     </Route>
                     <Route path="/">
                         <Home />
                     </Route>
-                    <Route path="/chatroom">
-                        <Chatroom />
-                    </Route>
-                    <Route path="/logout">
-                        <Logout />
-                    </Route>
                 </Switch>
+
             </div>
         </Router >
     );
