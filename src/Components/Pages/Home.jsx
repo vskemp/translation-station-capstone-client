@@ -1,7 +1,7 @@
 import React from 'react';
 import Images from '../Images/lang.png';
 import TranslationForm from '../TranslationForm';
-import TranslatedCommon from '../TranslatedCommon';
+
 
 function Home() {
     return (
@@ -11,7 +11,6 @@ function Home() {
                 <img src={Images} alt="Hello in different languages"></img>
             </div>
             <TranslationForm />
-            <TranslatedCommon />
         </div>
     )
 }

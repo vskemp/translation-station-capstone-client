@@ -10,20 +10,19 @@ export default class LoginForm extends Component {
       password: "",
     };
   }
-
   static async getInitialProps(ctx) {
     return {
       account: cookies(ctx).account || "",
       token: cookies(ctx).token || ""
     };
   }
+
   handleInputChange = event => {
     const { value, name } = event.target;
     this.setState({
       [name]: value
     });
   };
-
   onSubmit = async event => {
     event.preventDefault();
     const login = await axios.post("/users/login", {
@@ -31,38 +30,44 @@ export default class LoginForm extends Component {
       password: this.state.password
     });
     if (!login.data.browser_token) {
-      alert("Wrong Email or Password, Try Again!")
+      alert("Login Failure! Try Again!")
     } else {
       document.cookie = `account=${login.data.account_name}; path=/`;
       document.cookie = `token=${login.data.browser_token}; path=/`;
-      alert("Successfully logged in");
+      alert("You are logged in!");
     }
     console.log(document.cookie);
+    console.log(this.reset);
+
 
   };
   render() {
     console.log(this.state);
+
     return (
-      <form onSubmit={this.onSubmit}>
-        <h1>Login</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter email"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-          required
-        />
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <h1>Login</h1>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            value={this.state.password}
+            onChange={this.handleInputChange}
+            required
+          />
+          <input type="submit" value="Submit" />
+        </form>
+        <p>Delete cookie: <button onClick={this.reset}>Reset</button></p>
+      </div>
     );
   }
 }

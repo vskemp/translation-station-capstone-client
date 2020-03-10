@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import LanguageCodes from "../Utils/LanguageCodes";
+// import cookies from 'next-cookies';
+
 
 class TranslationForm extends Component {
   constructor(props) {
@@ -10,9 +12,8 @@ class TranslationForm extends Component {
       translated: "...",
       language: "es",
       phrase: "",
-      translation: "",
-      account: "",
-      token: ""
+      account: "bork",
+      token: "92lk5QIulvqD3UAp5OeAOw=="
     };
   }
 
@@ -27,10 +28,12 @@ class TranslationForm extends Component {
         language: this.state.language,
         message: this.state.value
       })
+
       .then(data => {
         console.log(data);
         this.setState({
-          translated: data.data.data.translations[0].translatedText
+          translated: data.data.data.translations[0].translatedText,
+          phrase: this.state.value
         });
         console.log(data.data.data.translations[0].translatedText);
       })
@@ -38,33 +41,26 @@ class TranslationForm extends Component {
         console.log("error");
       });
   }
+
   handleSubmit(e) {
     e.preventDefault(e);
     axios
       .post("/phrases/add", {
-        phrase: "veronica"
-        // account: this.state.account,
-        // token: this.state.token,
-        // language: this.state.language,
-        // phrase: this.state.phrase,
-        // translation: this.state.translated
+        phrase: this.state.value,
+        account: this.state.account,
+        token: this.state.token,
+        language: this.state.language,
+        translation: this.state.translated
       })
       .then(function (response) {
         console.log(response.data);
       })
-    // token: this.state.token,
-    // language: this.state.language,
-    // phrase: this.state.phrase
-
+    // componentDidMount() {
+    //   console.log('GrandChild did mount.');
+    // }
   }
-  // console.log(this.state.language);
-  // console.log(this.state.token);
-  // console.log(this.state.phrase);
-  // console.log(this.state.translation);
-  // console.log(this.state.account);
-
-
   render() {
+    console.log(this.state);
     return (
       <div>
         <form>
@@ -96,7 +92,7 @@ class TranslationForm extends Component {
           <h1> Your Translation: </h1>
           <h3>"{this.state.translated}"</h3>
           <button
-            onClick={this.handleSubmit}>Save Translation</button>
+            onClick={e => this.handleSubmit(e)}>Save Translation</button>
           <h1>Your saved phrases:</h1>
           <h3>{this.state.translated}</h3>
 

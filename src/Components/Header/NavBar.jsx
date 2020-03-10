@@ -6,7 +6,6 @@ import {
     Link
 } from "react-router-dom";
 import LoginSignUp from '../Pages/LoginSignUp';
-import Phrases from '../Pages/Phrases';
 import Home from '../Pages/Home';
 import Chatroom from '../Pages/Chatroom';
 import Logout from '../Pages/Logout';
@@ -23,9 +22,6 @@ export default function NavBar() {
                     </div>
                     <div className="login">
                         <Link to="/login">Login</Link>
-                    </div>
-                    <div className="phrases">
-                        <Link to="/phrases">Saved</Link>
                     </div>
                     <div className="chatroom">
                         <Link to="/chatroom">Chatroom</Link>
@@ -46,9 +42,6 @@ export default function NavBar() {
                     </Route>
                     <Route path="/login">
                         <LoginSignUp />
-                    </Route>
-                    <Route path="/phrases">
-                        <Phrases />
                     </Route>
                     <Route path="/">
                         <Home />
