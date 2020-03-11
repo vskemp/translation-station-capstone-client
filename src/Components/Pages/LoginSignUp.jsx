@@ -1,6 +1,6 @@
 import React from 'react';
-import SignupForm from '../SignupForm';
-import LoginForm from '../LoginForm';
+import SignupForm from '../Forms/SignupForm';
+import LoginForm from '../Forms/LoginForm';
 
 function Login() {
     return (

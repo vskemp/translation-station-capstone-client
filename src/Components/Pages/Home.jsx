@@ -1,5 +1,5 @@
 import React from 'react';
-import TranslationForm from '../TranslationForm';
+import TranslationForm from '../Forms/TranslationForm';
 // import { Flex } from "@chakra-ui/core";
 
 

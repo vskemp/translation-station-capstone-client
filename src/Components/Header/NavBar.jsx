@@ -62,8 +62,8 @@ export default class NavBar extends Component {
                         <div className="phrases">
                             <Link to="/phrases" style={{ color: "white", textDecoration: "none" }}>Phrases</Link>
                         </div>
-                        <div className="chatroom">
-                            <Link to="/chatroom" style={{ color: "white", textDecoration: "none" }}>Chatroom</Link>
+                        <div className="chat">
+                            <Link to="/chat" target="_blank" style={{ color: "white", textDecoration: "none" }}>Chatroom</Link>
                         </div>
                         <Button variantColor="red" onClick={this.onClick}>Logout</Button>
                     </nav>
@@ -71,7 +71,7 @@ export default class NavBar extends Component {
                     {/* A <Switch> looks through its children <Route>s and
                                         renders the first one that matches the current URL. */}
                     <Switch>
-                        <Route path="/chatroom">
+                        <Route path="/chat" target="_blank">
                             <Chatroom />
                         </Route>
                         <Route path="/login">

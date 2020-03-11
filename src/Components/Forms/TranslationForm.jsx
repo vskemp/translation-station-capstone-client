@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/core";
 
 // import { userInfo } from "os";
-import cookie, { remove } from 'react-cookie';
+import cookie from 'react-cookie';
 
 
 class TranslationForm extends Component {
