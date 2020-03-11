@@ -44,16 +44,12 @@ export default class LoginForm extends Component {
       document.cookie = `token=${login.data.browser_token}; path=/`;
       alert("You are logged in!");
     }
-    console.log(document.cookie);
-
-
-  };
+  }
   render() {
     console.log(this.state);
 
     return (
       <div>
-        {/* <Button variantColor="red" onClick={this.reset}>Logout</Button> */}
         <Flex justify="center">
           <form onSubmit={this.onSubmit}>
             <h1>Login</h1>

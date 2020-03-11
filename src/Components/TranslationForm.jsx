@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/core";
 
 // import { userInfo } from "os";
-import cookie from 'react-cookie';
+import cookie, { remove } from 'react-cookie';
 
 
 class TranslationForm extends Component {
@@ -71,7 +71,7 @@ class TranslationForm extends Component {
       .then(function (response) {
         const savedPhrases = response.data;
         console.log(savedPhrases);
-
+        alert("Saved!");
       })
   }
 
@@ -87,7 +87,6 @@ class TranslationForm extends Component {
         console.log(myData);
         return myData
       })
-
   }
   render() {
     console.log(this.state);

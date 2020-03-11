@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  Button,
-  List,
-  ListItem,
-  ListIcon
-} from "@chakra-ui/core";
-import cookie from 'react-cookie'
+// import {
+//   Button,
+//   List,
+//   ListItem,
+//   ListIcon
+// } from "@chakra-ui/core";
+import cookie, { remove } from 'react-cookie'
 
 class Phrases extends Component {
   state = {
@@ -42,10 +42,10 @@ class Phrases extends Component {
     const phrases = this.state.phrases;
     return (
       <div>
-        <h1>Saved Phrases</h1>
+        <h2>Saved Phrases</h2>
         <ul>
           {phrases.map(phrase => {
-            return <li key={phrase.id}>{phrase.id}. {phrase.language}: {phrase.phrase} - {phrase.translation}</li>
+            return <li key={phrase.id}>{phrase.id}. {phrase.language}: "{phrase.phrase}" = "{phrase.translation}"</li>
 
           })}
         </ul>
