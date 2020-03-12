@@ -1,13 +1,16 @@
 ## TRANSLATION STATION
 ## www.translationstation.net
 
-![Desktop]
+![image](https://user-images.githubusercontent.com/56593647/76535260-fc395b00-6450-11ea-811d-1395f0342d47.png)
+![image](https://user-images.githubusercontent.com/56593647/76535395-29860900-6451-11ea-8af2-9dc02bc6de2a.png)
+
+
 
 ## Problem Solved
 Communicate with others with multiple language options with our chatroom or save important phrases to save for later. Leave behind having to translated every phrase spoken to each other and have it done instantly!
 
 ## How It Works
--Google Translate API pulls 104 different language options for the user to choose from using Axios. React.js is the JavaScript framework that the entire app is created on. Chakra along with CSS is used for styling.
+- Google Translate API pulls 104 different language options for the user to choose from using Axios. React.js is the JavaScript framework that the entire app is created on. Chakra along with CSS is used for styling.
 
 - The home page lets anyone type a phrase in an language and choose what they want the translation to be, resulting in the tranlsation being printed below. If a user wishes to save the phrase, they must login or create an account with their email. This creates a browser token along with encrypting the user's password. All account required interactions look for a browser token and a username.
 
@@ -22,4 +25,4 @@ Google Translate: https://cloud.google.com/translate
 - Create a base chatroom with original input
 
 ## Created By:
-Veronica & [Christoper Kemp](https://github.com/cmkemp52
+Veronica & [Christoper Kemp](https://github.com/cmkemp52)
