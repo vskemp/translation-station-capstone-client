@@ -21,13 +21,14 @@ class Phrases extends Component {
   }
 
   handleDelete = async event => {
-    event.persist();
+    event.preventDefault();
     await axios.post("/phrases/remove", {
       account: this.state.account,
       token: this.state.token,
       id: event.target.value
     });
     alert('Your phrase has been deleted!');
+    this.retrieve(this.state.account, this.state.token);
   }
 
   retrieve(account, token) {

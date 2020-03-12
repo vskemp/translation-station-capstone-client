@@ -1,24 +1,23 @@
 const axios = require("axios");
 
-export async function getChat(chatName, current) {
+export async function getChat(language, current) {
   const response = await axios.get(
-    `https://chatapi.mayloop.com/chatroom/${chatName}/${current}`
+    `/chat/${language}/${current}`
   );
   return await response;
 }
 
-export async function newRoom(chatroom) {
-  const response = await axios.put(`https://chatapi.mayloop.com/chatroom`, {
-    chatroom: chatroom
-  });
+export async function enterChat(language) {
+  const response = await axios.get(`/chat/${language}`);
   return await response;
 }
 
-export async function sendMessage(chatroom, username, message) {
+export async function sendMessage(account, token, message) {
   const response = await axios.put(
-    `https://chatapi.mayloop.com/chatroom/${chatroom}`,
+    `/chat`,
     {
-      username,
+      account,
+      token,
       message
     }
   );

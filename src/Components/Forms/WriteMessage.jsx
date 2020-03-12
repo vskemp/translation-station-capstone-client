@@ -9,6 +9,7 @@ import {
   Input,
   // Flex
 } from "@chakra-ui/core";
+import axios from 'axios';
 
 class WriteMessage extends Component {
   state = {
@@ -20,8 +21,8 @@ class WriteMessage extends Component {
   sendMessage = async event => {
     event.preventDefault();
     const response = await sendMessage(
-      this.props.chatroom,
-      this.props.username,
+      this.props.account,
+      this.props.token,
       this.state.message
     );
     this.setState({
